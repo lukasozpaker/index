@@ -52,7 +52,7 @@ export const box_data:CardInterface[] = [
     id:2,
     name:"CS:GO Map Voting",
     isDone:false,
-    link:"https://www.ozpaker.org/vote",
+    link:"https://www.ozpaker.org/csgo",
     description:"Vote for today's CS:GO map pool. New accounts are no longer allowed. Please use your existing account to vote.",
     tag:"Web"
   },

@@ -25,7 +25,6 @@ yarn-error.log*
 # extra
 /private
 
-public/androidprivacypolicy/
 public/bruh/
 public/business/
 public/colors/
@@ -34,3 +33,4 @@ public/index/
 public/instagram/
 public/terminal/
 public/old/
+public/androidprivacypolicy/
