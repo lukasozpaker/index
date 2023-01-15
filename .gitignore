@@ -25,11 +25,11 @@ yarn-error.log*
 # extra
 /private
 
-public/**/androidprivacypolicy
-public/**/bruh
-public/**/business
-public/**/colors
-public/**/csgo
-public/**/index
-public/**/instagram
-public/**/terminal
+public/androidprivacypolicy/
+public/bruh/
+public/business/
+public/colors/
+public/csgo/
+public/index/
+public/instagram/
+public/terminal/
