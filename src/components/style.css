@@ -501,7 +501,7 @@ h1 {
         /* make the freebox div take up the whole column on the right */
         grid-template-areas: "title" "freebox" "underTitle";
         margin-bottom: 1rem;
-        outline:1px solid red;
+        /* outline:1px solid red; */
         
     }
 
