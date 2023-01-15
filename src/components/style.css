@@ -1,0 +1,517 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+:root {
+    --white: #FDF0ED;
+    --whiter: #FDF0EDde;
+    --scrollbar: 0.2rem;
+    overflow-x: none;
+}
+
+::selection {
+    color: black;
+    background: var(--white);
+}
+
+/* Hide the default scrollbar */
+::-webkit-scrollbar {
+    position: absolute;
+    width: var(--scrollbar);
+    background-color: transparent;
+    background: black;
+}
+
+::-moz-scrollbar {
+    position: absolute;
+    width: var(--scrollbar);
+    background-color: transparent;
+    background: black;
+}
+
+::-ms-scrollar {
+    position: absolute;
+    width: var(--scrollbar);
+    background-color: transparent;
+    background: black;
+}
+
+::scrollbar {
+    position: absolute;
+    width: var(--scrollbar);
+    background-color: transparent;
+    background: black;
+}
+
+/* Create the custom scrollbar */
+::-webkit-scrollbar-thumb {
+    background-color: var(--white);
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+}
+
+div {
+    font-size: 2rem;
+}
+
+.header {
+
+    width: 100%;
+    margin: 1rem 0;
+}
+
+
+input {
+    z-index:9;
+    border: solid 2px #2E303E;
+    outline: none;
+    padding: 0.7em;
+    border-radius: 10px;
+    /* set background to blur waht is behind it */
+    background: transparent;
+
+    color: var(--white);
+    max-width: 60em;
+    width: 50%;
+    transition: all 0.4s ease;
+    caret-color: #E95379;
+    display: block;
+    position: relative;
+    font-size: 17px;
+    margin: auto;
+
+}
+
+input:focus {
+    border: solid 2px #6C6F93;
+    padding-left: 1em;
+    padding-right: 1em;
+    max-width: 62em;
+    width: 51%;
+}
+
+input:focus::placeholder {
+    color: transparent;
+    transition: all 0.1s ease;
+}
+
+
+
+
+
+html {
+    margin: auto;
+    width: 96%;
+}
+
+/* TOP CONTAINER */
+
+
+
+h1 {
+    font-size: 11vw;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+
+}
+
+.top-cont {
+
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    /* two columns */
+    grid-template-rows: 5fr 3fr;
+    /* auto-sizing rows */
+    /* make the freebox div take up the whole column on the right */
+    grid-template-areas: "title freebox" "underTitle freebox";
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    cursor: default;
+    z-index: 1;
+    grid-area: title;
+    display: inline-block;
+    color: var(--white);
+    text-align: left;
+    padding-left: 0.25rem;
+    padding-bottom: 0.4rem;
+    line-height: 7vw;
+    position: relative;
+
+    user-select:none;
+
+
+    /* outline:1px solid blue; */
+    /* padding-top:2rem; */
+    /* make text take up whoel width */
+    width: 100%;
+    overflow-x: visible;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 11vw;
+    margin: auto;
+
+}
+
+.title h1 {
+    margin: 0rem;
+    padding: 1rem;
+    font-size: 10vw;
+    /* background: red; */
+}
+
+.title .second {
+    margin-left: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.freebox {
+    z-index: -1;
+    grid-area: freebox;
+    display: inline-block;
+    position: relative;
+
+    /* outline: 1px solid red; */
+
+    width: 100%;
+    max-width: 45vw;
+    grid-column: 2;
+}
+
+
+
+
+
+
+.underTitle {
+    z-index: 2;
+    grid-area: underTitle;
+    display: inline-block;
+
+    width: 100%;
+    text-align: left;
+    padding-left: 0.5rem;
+    margin-top: 1.5rem;
+    /* outline: 1px solid purple; */
+    margin-bottom: 0.5rem;
+
+}
+
+.underTitle p {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    margin-top: 0.2rem;
+
+}
+
+.underTitle a {
+    box-shadow: 0px 0px 0px 1px var(--white) inset;
+    /* box-shadow: border-box;
+    border: 1px solid red; */
+    background: transparent;
+    font-size: 20px;
+    margin-right: 1rem;
+
+
+    display: inline-block;
+    padding: 10px 20px;
+    color: var(--white);
+    position: relative;
+    z-index: 3;
+    /* remove default a tag styles */
+    text-decoration: none;
+    width: fit-content;
+    margin-top: 0.1rem;
+    margin-bottom: 0.6rem;
+}
+
+.underTitle a div {
+    position: absolute;
+    display: inline-block;
+
+    height: 0%;
+    top: 0;
+    left: 0;
+    background: var(--white);
+    z-index: -1;
+    overflow: hidden;
+    transition: .2s all ease-out;
+    font-size: 20px;
+    color: red;
+
+    width: 100%;
+}
+
+.underTitle a:hover div {
+    display: inline-block;
+    height: 100%;
+    /* add a neon glow effect */
+    box-shadow: 0 0 15px var(--whiter);
+
+
+}
+
+.underTitle a:hover {
+    z-index: 3;
+    transition: .2s all ease-out;
+    color: black;
+}
+
+
+
+
+
+
+
+
+.cardlist {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns */
+    grid-gap: 36px;
+    /* space between cards */
+    grid-auto-rows: minmax(250px, auto);
+    margin-top: 1rem;
+    /* outline: 1px solid green; */
+}
+
+.card {
+    position: relative;
+    background: transparent;
+    outline: 1px solid var(--white);
+    color: var(--white);
+    display: grid;
+    padding:1rem;
+    /* overflow:hidden; */
+    cursor:default;
+}
+
+
+
+
+
+.card h2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    margin: auto;
+    text-align: center;
+    transition: all 0.2s ease-out;
+    /* background:green; */
+    margin-bottom:0;
+    user-select: none;
+}
+
+.card:hover h2{
+    /* move up 30% of the height of the card */
+    transform: translateY(-1rem);
+}
+
+.card p{
+    white-space: pre-wrap;
+
+    cursor:text;
+    font-size:16px;
+    /* background:red; */
+    opacity:0;
+    transition: all 0.2s ease-out;
+    margin:0;
+    padding:0;
+    float:left;
+}
+.card:hover p{
+    opacity:1;
+    transform: translateY(-1rem);
+
+}
+
+
+
+.card .card-expand {
+    width: 100%;
+    background: var(--white);
+    height: 0;
+    bottom: 0;
+    position: absolute;
+    transition: height 0.2s ease-out;
+    color: black;
+    /* align vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px var(--whiter);
+
+}
+
+.card a{
+    text-decoration: none;
+    opacity: 0;
+    transition:all 0.2s ease-out;
+}
+
+.card:hover .card-expand {
+    opacity:1;
+    height: 25%;
+    transition:all 0.2s ease-out;
+}
+
+.card-expand:hover a{
+    opacity:1;
+    
+}
+
+
+
+.card span {
+    top: 9px;
+    left: 12px;
+    position: absolute;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: "Poppins", sans-serif;
+    user-select: none;
+    /* background:red; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+
+    position: relative;
+    left: 0;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+    width: 100%;
+    /* background-color: #333; */
+    color: var(--white);
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer div {
+    font-size: 1rem;
+}
+
+.footer .left {
+    margin-left: 0px;
+}
+
+.footer .right {
+    margin-right: 0px;
+}
+
+
+
+
+
+
+
+@media (max-width: 1000px) {
+
+    /* half monitor */
+    html {
+
+        width: 96%;
+    }
+
+    input {
+        width: 85%;
+    }
+
+    input:focus {
+        width: 87%;
+    }
+
+    .title {
+        text-align: center;
+        padding-top: 0rem;
+        padding-bottom: 10px;
+        line-height: 11vw;
+    }
+
+    .title h1 {
+        margin: 0rem;
+        padding: 0rem;
+        font-size: 11vw;
+        /* background: red; */
+    }
+
+    .title .second {
+        margin-left: 0rem;
+    }
+
+    .top-cont {
+
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        /* make the freebox div take up the whole column on the right */
+        grid-template-areas: "title" "freebox" "underTitle";
+        margin-bottom: 1rem;
+    }
+
+    .freebox {
+        grid-column: 1;
+        max-width: 100%;
+    }
+
+
+    .cardlist {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns */
+    }
+}
+
+@media screen and (max-width: 650px),
+(max-aspect-ratio: 2/3) {
+
+    /* phone */
+    .cardlist {
+        grid-template-columns: 100%;
+    }
+}
