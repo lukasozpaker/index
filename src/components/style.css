@@ -141,7 +141,7 @@ h1 {
     display: grid;
     grid-template-columns: 6fr 4fr;
     /* two columns */
-    grid-template-rows: 5fr 3fr;
+    grid-template-rows: 10fr 5.6fr;
     /* auto-sizing rows */
     /* make the freebox div take up the whole column on the right */
     grid-template-areas: "title freebox" "underTitle freebox";
@@ -164,8 +164,6 @@ h1 {
 
 
     /* outline:1px solid blue; */
-    /* padding-top:2rem; */
-    /* make text take up whoel width */
     width: 100%;
     overflow-x: visible;
 
@@ -212,11 +210,10 @@ h1 {
 
     width: 100%;
     text-align: left;
-    padding-left: 0.5rem;
     margin-top: 1.7rem;
-    /* outline: 1px solid purple; */
-    margin-bottom: 0rem;
-
+    margin-bottom: 0;
+    padding-bottom:0;
+    /* outline:1px solid green; */
     /* outline:1px solid green; */
 
 }
@@ -226,12 +223,22 @@ h1 {
     margin: 0;
     padding: 0;
     margin-top: 0.2rem;
+    padding-left: 0.5rem;
 
+    /* outline:1px solid red; */
 }
 
 .link-cont{
     margin-top: 0.8rem;
+    /* margin-left: 0.5rem; */
     margin-bottom: 0.6rem;
+    /* outline:1px solid red; */
+    display:flex;
+    gap:1rem;
+    /* allow flex items to wrap */
+    flex-wrap:wrap;
+    justify-content: flex-start;
+    
 }
 .underTitle a {
     box-shadow: 0px 0px 0px 1px var(--white) inset;
@@ -239,7 +246,6 @@ h1 {
     border: 1px solid red; */
     background: transparent;
     font-size: 20px;
-    margin-right: 1rem;
 
 
     display: inline-block;
@@ -250,7 +256,6 @@ h1 {
     /* remove default a tag styles */
     text-decoration: none;
     width: fit-content;
-    
     
 }
 
@@ -520,6 +525,12 @@ a{
         max-width: 100%;
     }
 
+    .underTitle{
+        margin-top:0.2rem;
+    }
+    .link-cont{
+        justify-content: space-evenly;
+    }
 
     .cardlist {
         grid-template-columns: repeat(2, 1fr);
