@@ -12,7 +12,7 @@ const Search = ({ topBar, setTopBar, handleAdd }: TopBar) => {
                 onChange={(e) => setTopBar(e.target.value)}
                 id="site-search"
                 name="search"
-                placeholder="Ask"
+                placeholder="Redirect"
                 autoComplete="off"
                 aria-label="Search"
                 enterKeyHint="enter"

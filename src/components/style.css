@@ -111,7 +111,7 @@ h1 {
 .top-cont {
     display: grid;
     grid-template-columns: 6fr 4fr;
-    grid-template-rows: 10fr 5.6fr;
+    grid-template-rows: 11fr 5fr;
     grid-template-areas: "title freebox" "underTitle freebox";
     margin-bottom: 1rem;
 }

@@ -7,3 +7,5 @@ To spin up a local instance run: npm run start
 To build: npm run build
 
 To deploy: npm run deploy
+
+
