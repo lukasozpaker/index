@@ -1,76 +1,71 @@
-import React, {useState} from 'react';
-import './App.css';
-import Header from './components/header';
-import {Title} from './components/title';
-import {UnderTitle} from './components/undertitle';
-import {CardInterface} from './components/cardinterface';
-import CardList from './components/cardlist';
-import Footer from './components/footer';
-import FreeBox from './components/freebox';
-import {box_data} from './boxdata';
-
+import React, { useState } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import { Title } from "./components/Title";
+import { UnderTitle } from "./components/UnderTitle";
+import { CardInterface } from "./Resources";
+import CardList from "./components/CardList";
+import Footer from "./components/Footer";
+import FreeBox from "./components/FreeBox";
+import { box_data } from "./boxdata";
 
 const App = () => {
+    const [topBar, setTopBar] = useState<string>("");
+    const [cards, setCards] = useState<CardInterface[]>([]);
 
+    const handleAdd = (e: React.FormEvent) => {
+        e.preventDefault();
 
-  const [todo, setTodo] = useState<string>("");
-  const [todos, setTodos] = useState<CardInterface[]>([]);
+        if (topBar) {
+            if (topBar == "clear") {
+                setCards([]);
+                setTopBar("");
+                return;
+            }
 
-  const handleAdd = (e:React.FormEvent) => {
-    e.preventDefault();
+            if (topBar == "help") {
+                alert("test");
+                setTopBar("");
+                return;
+            }
 
-    if(todo){
-      if(todo == "clear"){
-        setTodos([]);
-        setTodo("");
-        return;
-      }
+            setCards([
+                ...cards,
+                {
+                    id: Date.now(),
+                    name: topBar,
+                    isDone: false,
+                    link: "",
+                    description: "",
+                    tag: "",
+                    tagRight: ""
+                },
+            ]);
 
-      if(todo == "help"){
-        alert("test");
-        setTodo("");
-        return;
-      }
+            setTopBar("");
+        }
+    };
 
-      
-      setTodos([...todos, {
-        id:Date.now(),
-        name:todo,
-        isDone:false,
-        link:"",
-        description:"",
-        tag:""
-
-      }]);
-
-
-      setTodo("");
+    console.log(cards);
+    if (cards.length == 0) {
+        setCards(box_data);
     }
-  };
 
-  console.log(todos);
-  // set inital todos to box_data
-  if(todos.length == 0){
-    setTodos(box_data);
-  }
+    return (
+        <div className="App">
+            <Header topBar={topBar} setTopBar={setTopBar} handleAdd={handleAdd} />
+            <div className="top-cont">
+                <Title />
 
-  return (
+                <FreeBox />
 
-    <div className="App">
-      <Header todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-      <div className="top-cont">
-        <Title/>
+                <UnderTitle />
+            </div>
 
-        <FreeBox/>
-
-        <UnderTitle/>
-      </div>
-      
-      <CardList todos={todos} setTodos={setTodos}/>
-      <Footer/>
-
-    </div>
-  );
-}
+            <CardList cards={cards} setCards={setCards} />
+            <Footer />
+        </div>
+    );
+};
 
 export default App;
