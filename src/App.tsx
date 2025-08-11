@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import { Title } from "./components/Title";
@@ -7,11 +7,13 @@ import { CardInterface } from "./Resources";
 import CardList from "./components/CardList";
 import Footer from "./components/Footer";
 import FreeBox from "./components/FreeBox";
+import ThemeToggleButton from "./components/ThemeToggleButton";
 import { box_data } from "./boxdata";
 
 const App = () => {
     const [topBar, setTopBar] = useState<string>("");
     const [cards, setCards] = useState<CardInterface[]>([]);
+    const searchInputRef = useRef<HTMLInputElement | null>(null);
 
     const handleAdd = (e: React.FormEvent) => {
         e.preventDefault();
@@ -41,19 +43,38 @@ const App = () => {
                     tagRight: ""
                 },
             ]);
-
             setTopBar("");
         }
     };
 
-    console.log(cards);
     if (cards.length == 0) {
         setCards(box_data);
     }
 
+    useEffect(() => {
+        const handleKeydown = (e: KeyboardEvent) => {
+            if (e.key == "/" || e.key == "i") { 
+                if(document.activeElement && document.activeElement.tagName != "INPUT" && document.activeElement.tagName != "TEXTAREA") {
+                    e.preventDefault();
+                    searchInputRef.current?.focus();
+                }
+            } else if (e.key == "Escape" || e.ctrlKey && e.key == "[" || e.ctrlKey && e.key == "c") {
+                if (document.activeElement == searchInputRef.current) {
+                    e.preventDefault();
+                    searchInputRef.current?.blur();
+                }
+            }
+        };
+
+        document.addEventListener("keydown", handleKeydown);
+        return () => {
+            document.removeEventListener("keydown", handleKeydown);
+        };
+    }, []);
+
     return (
         <div className="App">
-            <Header topBar={topBar} setTopBar={setTopBar} handleAdd={handleAdd} />
+            <Header topBar={topBar} setTopBar={setTopBar} handleAdd={handleAdd} searchInputRef={searchInputRef}/>
             <div className="top-cont">
                 <Title />
 

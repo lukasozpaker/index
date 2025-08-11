@@ -25,7 +25,7 @@ export class UnderTitle extends React.Component {
                     </a>
                 </div>
 
-                <p>Computer Engineer. Below are a couple of old projects I've built over the years. Some are still in development and a few are now deprecated due to API changes.</p>
+                <p>Bachelor of Science in Computer Engineering. Archive of some old projects.</p>
             </div>
         );
     }

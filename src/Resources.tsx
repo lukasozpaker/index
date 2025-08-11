@@ -8,13 +8,14 @@ export interface CardInterface {
     tagRight: string;
 }
 
-export interface TopBar {
-    topBar: string;
-    setTopBar: React.Dispatch<React.SetStateAction<string>>;
-    handleAdd: (e: React.FormEvent) => void;
-}
-
 export interface Cards {
     cards: CardInterface[];
     setCards: React.Dispatch<React.SetStateAction<CardInterface[]>>;
+}
+
+export interface HeaderProps {
+    topBar: string;
+    setTopBar: React.Dispatch<React.SetStateAction<string>>;
+    handleAdd: (e: React.FormEvent) => void;
+    searchInputRef: React.RefObject<HTMLInputElement>;
 }

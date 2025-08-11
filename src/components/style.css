@@ -5,47 +5,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:wght@300..700");
 
 :root {
-    --white: #fdf0ed;
-    --whiter: #fdf0edde;
+    --text-color: #fdf0ed;
+    --text-color-alt: #fdf0edde;
+    --background-color: #000000;
     --scrollbar: 0.2rem;
+    --transition-speed: 0.1s;
     overflow-x: none;
 }
 
 ::selection {
-    color: black;
-    background: var(--white);
+    color: var(--background-color);
+    background: var(--text-color);
 }
 
 ::-webkit-scrollbar {
     position: absolute;
     width: var(--scrollbar);
     background-color: transparent;
-    background: black;
+    background: var(--background-color);
 }
 
 ::-moz-scrollbar {
     position: absolute;
     width: var(--scrollbar);
     background-color: transparent;
-    background: black;
+    background: var(--background-color);
 }
 
 ::-ms-scrollar {
     position: absolute;
     width: var(--scrollbar);
     background-color: transparent;
-    background: black;
+    background: var(--background-color);
 }
 
 ::scrollbar {
     position: absolute;
     width: var(--scrollbar);
     background-color: transparent;
-    background: black;
+    background: var(--background-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--white);
+    background-color: var(--text-color);
     border-radius: 10px;
 }
 
@@ -72,7 +74,7 @@ input {
     padding: 0.7em;
     border-radius: 10px;
     background: transparent;
-    color: var(--white);
+    color: var(--text-color);
     max-width: 60em;
     width: 60%;
     transition: all 0.4s ease;
@@ -91,12 +93,13 @@ input:focus {
     width: 61%;
 }
 
-input:focus::placeholder {
+/* input:focus::placeholder {
     color: transparent;
     transition: all 0.1s ease;
-}
+} */
 
 html {
+    background: var(--background-color);
     margin: auto;
     width: 92%;
 }
@@ -124,7 +127,7 @@ h1 {
     z-index: 1;
     grid-area: title;
     display: inline-block;
-    color: var(--white);
+    color: var(--text-color);
     text-align: left;
     padding-left: 0.25rem;
     padding-bottom: 0.4rem;
@@ -169,6 +172,7 @@ h1 {
     margin-top: 1.7rem;
     margin-bottom: 0;
     padding-bottom: 0;
+    color: var(--text-color)
 }
 
 .underTitle p {
@@ -190,12 +194,12 @@ h1 {
 }
 
 .underTitle a {
-    box-shadow: 0px 0px 0px 1px var(--white) inset;
+    box-shadow: 0px 0px 0px 1px var(--text-color) inset;
     background: transparent;
     font-size: 20px;
     display: inline-block;
     padding: 10px 20px;
-    color: var(--white);
+    color: var(--text-color);
     position: relative;
     z-index: 3;
     text-decoration: none;
@@ -208,10 +212,10 @@ h1 {
     height: 0%;
     top: 0;
     left: 0;
-    background: var(--white);
+    background: var(--text-color);
     z-index: -1;
     overflow: hidden;
-    transition: 0.2s all ease-out;
+    transition: var(--transition-speed) all ;
     font-size: 20px;
     width: 100%;
 }
@@ -219,13 +223,13 @@ h1 {
 .underTitle a:hover div {
     display: inline-block;
     height: 100%;
-    box-shadow: 0 0 15px var(--whiter);
+    box-shadow: 0 0 15px var(--text-color-alt);
 }
 
 .underTitle a:hover {
     z-index: 3;
     transition: 0.2s all ease-out;
-    color: black;
+    color: var(--background-color);
 }
 
 .cardlist {
@@ -239,8 +243,8 @@ h1 {
 .card {
     position: relative;
     background: transparent;
-    outline: 1px solid var(--white);
-    color: var(--white);
+    outline: 1px solid var(--text-color);
+    color: var(--text-color);
     display: grid;
     padding: 1rem;
     cursor: default;
@@ -252,7 +256,7 @@ h1 {
     font-size: 30px;
     margin: auto;
     text-align: center;
-    transition: all 0.2s ease-out;
+    transition: all var(--transition-speed) ease-out;
     margin-bottom: 0;
     user-select: none;
 }
@@ -266,7 +270,7 @@ h1 {
     cursor: text;
     font-size: 16px;
     opacity: 0;
-    transition: all 0.2s ease-out;
+    transition: all var(--transition-speed) ease-out;
     margin: 0;
     padding: 0;
     float: left;
@@ -278,16 +282,16 @@ h1 {
 
 .card .card-expand {
     width: 100%;
-    background: var(--white);
+    background: var(--text-color);
     height: 0;
     bottom: 0;
     position: absolute;
-    transition: height 0.2s ease-out;
-    color: black;
+    transition: height var(--transition-speed) ease-out;
+    color: var(--background-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 15px var(--whiter);
+    box-shadow: 0 0 15px var(--text-color-alt);
 }
 
 .card a {
@@ -299,7 +303,7 @@ h1 {
 .card:hover .card-expand {
     opacity: 1;
     height: 25%;
-    transition: all 0.2s ease-out;
+    transition: all var(--transition-speed) ease-out;
 }
 
 .card-expand:hover a {
@@ -335,7 +339,7 @@ a {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     width: 100%;
-    color: var(--white);
+    color: var(--text-color);
     text-align: center;
     display: flex;
     justify-content: space-between;
@@ -351,6 +355,38 @@ a {
 
 .footer .right {
     margin-right: 0px;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text-color: #202020;
+        --text-color-alt: #444444;
+        --background-color: #fdf0ed;
+    }
+    input:focus {
+        border: solid 2px var(--text-color);
+    }
+}
+
+/* class theme overrides, toggled via button */
+.theme-light {
+    --text-color: #202020;
+    --text-color-alt: #444444;
+    --background-color: #fdf0ed;
+
+    input:focus {
+        border: solid 2px var(--text-color);
+    }
+}
+
+.theme-dark {
+    --text-color: #fdf0ed;
+    --text-color-alt: #fdf0edde;
+    --background-color: #000000;
+    /* Additional dark mode overrides */
+    input:focus {
+        border: solid 2px var(--text-color);
+    }
 }
 
 @media (max-width: 1000px) {
