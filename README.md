@@ -1,6 +1,6 @@
 # Deploys to lukasozpaker.github.io
 
-Repo is built with React and Typescript. Static page generation is handled by react-snap which runs on every build.
+Repo is built with React and Typescript. React-snap appears to not work with react 18+. Therefore static page generation disabled. Will set it up again once I port to nextjs.
 
 To spin up a local instance run: npm run start
 
