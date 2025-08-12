@@ -1,10 +1,11 @@
+// will fix the fact that this is a .jsx when I port the site to next.js from create-react-app
 import React from "react";
-import { Canvas, useFrame } from "react-three-fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 const Box = () => {
-    const boxRef: any = useRef();
+    const boxRef = useRef(null);
 
     useFrame(() => {
         boxRef.current.rotation.z += 0.002;
@@ -17,15 +18,14 @@ const Box = () => {
             rotation-y={Math.PI * -0.25}
             rotation-z={Math.PI * 0.25}
         >
-            <boxBufferGeometry args={[3.1, 3.1, 3.1]} />
+            <boxGeometry args={[3.1, 3.1, 3.1]} />
             <meshStandardMaterial
                 attach="material"
-                color="red"
+                color="White"
                 transparent
                 roughness={0.8}
                 metalness={0.2}
-                // emissive={"Red"}
-                // emissiveIntensity={0.5}
+                emissive={"White"}
             />
         </mesh>
     );
@@ -36,7 +36,6 @@ const FreeBox = () => {
         <div className="freebox">
             <Canvas>
                 <pointLight position={[7, 8, 7]} />
-                {/* <KeyLight brightness={6} color={"#ffffff"} /> */}
 
                 <Box />
             </Canvas>

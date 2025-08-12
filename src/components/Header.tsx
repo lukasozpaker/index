@@ -5,13 +5,13 @@ import { HeaderProps } from "../Resources";
 import ThemeToggleButton from "./ThemeToggleButton";
 
 
-const Header = ({ topBar: topBar, setTopBar: setTopBar, handleAdd, searchInputRef }: HeaderProps) => {
+const Header = ({ topBar: topBar, setTopBar: setTopBar, topBarCallback, searchInputRef }: HeaderProps) => {
     return (
         <div className="header">
             <Search
                 topBar={topBar}
                 setTopBar={setTopBar}
-                handleAdd={handleAdd}
+                topBarCallback={topBarCallback}
                 searchInputRef={searchInputRef}
             ></Search>
             <ThemeToggleButton/>

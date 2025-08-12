@@ -13,7 +13,7 @@ import { box_data } from "./boxdata";
 const App = () => {
     const [topBar, setTopBar] = useState<string>("");
     const [cards, setCards] = useState<CardInterface[]>([]);
-    const searchInputRef = useRef<HTMLInputElement | null>(null);
+    const searchInputRef = useRef<HTMLInputElement>(null);
 
     const handleAdd = (e: React.FormEvent) => {
         e.preventDefault();
@@ -47,6 +47,16 @@ const App = () => {
         }
     };
 
+    const redirectToLLM = (e: React.FormEvent) => {
+        e.preventDefault();
+        const llmUrl = "https://chatgpt.com/?q=";
+        const query = topBar.trim();
+        if (query) {
+            window.open(llmUrl + query, "_blank");
+        }
+        setTopBar("");
+    }
+
     if (cards.length == 0) {
         setCards(box_data);
     }
@@ -74,7 +84,7 @@ const App = () => {
 
     return (
         <div className="App">
-            <Header topBar={topBar} setTopBar={setTopBar} handleAdd={handleAdd} searchInputRef={searchInputRef}/>
+            <Header topBar={topBar} setTopBar={setTopBar} topBarCallback={redirectToLLM} searchInputRef={searchInputRef}/>
             <div className="top-cont">
                 <Title />
 

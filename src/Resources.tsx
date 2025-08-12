@@ -16,6 +16,6 @@ export interface Cards {
 export interface HeaderProps {
     topBar: string;
     setTopBar: React.Dispatch<React.SetStateAction<string>>;
-    handleAdd: (e: React.FormEvent) => void;
-    searchInputRef: React.RefObject<HTMLInputElement>;
+    topBarCallback: (e: React.FormEvent) => void;
+    searchInputRef: React.RefObject<HTMLInputElement | null>;
 }

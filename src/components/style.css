@@ -65,9 +65,16 @@ div {
     width: 100%;
     margin: 0.75rem 0;
     margin-top: 1.25rem;
+    /* grid with three items, nothing on left, centered search bar in middle, button on right */
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+
 }
 
-input {
+.search-wrapper {
+    grid-column: 2;
+}
+.search-bar {
     z-index: 9;
     border: solid 2px #2e303e;
     outline: none;
@@ -75,9 +82,9 @@ input {
     border-radius: 10px;
     background: transparent;
     color: var(--text-color);
-    max-width: 60em;
-    width: 60%;
-    transition: all 0.4s ease;
+    /* max-width: 60em; */
+    width: 92%;
+    transition: all 0.3s ease;
     caret-color: #e95379;
     display: block;
     position: relative;
@@ -85,13 +92,19 @@ input {
     margin: auto;
 }
 
-input:focus {
+.search-bar:focus {
     border: solid 2px #6c6f93;
     padding-left: 1em;
     padding-right: 1em;
-    max-width: 62em;
-    width: 61%;
+    /* max-width: 62em; */
+    width: 93%;
 }
+
+/*input {
+}
+
+input:focus {
+}*/
 
 /* input:focus::placeholder {
     color: transparent;
@@ -357,6 +370,28 @@ a {
     margin-right: 0px;
 }
 
+.theme-toggle-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 50%;
+    font-size: 1em;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    padding: 0;
+    margin: auto;
+
+    grid-column: 3;
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.theme-toggle-button:hover {
+    color: var(--text-color-alt);
+}
+
+
 @media (prefers-color-scheme: light) {
     :root {
         --text-color: #202020;
@@ -453,5 +488,24 @@ a {
     /* phone */
     .cardlist {
         grid-template-columns: 100%;
+    }
+
+    .search-wrapper {
+        grid-column-start: 1;
+        grid-column-end: span 2;
+    }
+
+    .search-bar {
+        width: 88%;
+    }
+
+    .search-bar:focus {
+        width: 89%;
+        padding: 0.7em;
+    }
+
+    .theme-toggle-button {
+        margin-right: 0;
+        padding-right: 0;
     }
 }
